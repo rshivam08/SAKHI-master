@@ -20,7 +20,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -97,7 +97,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     JSONObject jsonObject, JO;
     JSONArray jsonArray;
     TextView txtUninstall;
-    ImageButton medical_shops, female_doctors, see_toilets, woman;
+    ImageView medical_shops, female_doctors, see_toilets, woman;
     TextView txtBackup, txtDetail;
     private GoogleMap mMap, mMap1;
 
@@ -110,11 +110,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("TOILETS");
         toolbar.setTitleTextColor(getResources().getColor(R.color.textTitleColor));
+
         MarkerPoints = new ArrayList<>();
-        woman = (ImageButton) findViewById(R.id.woman);
-        medical_shops = (ImageButton) findViewById(R.id.medical_shop);
-        female_doctors = (ImageButton) findViewById(R.id.doctors);
-        see_toilets = (ImageButton) findViewById(R.id.toilets);
+        woman = (ImageView) findViewById(R.id.woman);
+        medical_shops = (ImageView) findViewById(R.id.medical_shop);
+        female_doctors = (ImageView) findViewById(R.id.doctors);
+        see_toilets = (ImageView) findViewById(R.id.toilets);
 
         pref = new PrefManager(getApplicationContext());
         pref.setEvent("0");
@@ -137,9 +138,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View v) {
                 getSupportActionBar().setTitle("MEDICAL SHOPS");
                 flag = 1;
-                see_toilets.setImageResource(R.drawable.comtoi);
-                medical_shops.setImageResource(R.drawable.mwhite);
-                female_doctors.setImageResource(R.drawable.comdust);
+
 
                 AlertDialogManager alert = new AlertDialogManager();
                 ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
@@ -202,9 +201,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View v) {
                 getSupportActionBar().setTitle("FEMALE DOCTORS");
                 flag = 2;
-                see_toilets.setImageResource(R.drawable.comtoi);
-                medical_shops.setImageResource(R.drawable.m);
-                female_doctors.setImageResource(R.drawable.comdustwhite);
 
                 AlertDialogManager alert = new AlertDialogManager();
                 ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
@@ -273,9 +269,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View v) {
                 getSupportActionBar().setTitle("TOILETS");
                 flag = 3;
-                see_toilets.setImageResource(R.drawable.comtoiwhite);
-                medical_shops.setImageResource(R.drawable.m);
-                female_doctors.setImageResource(R.drawable.comdust);
 
                 AlertDialogManager alert = new AlertDialogManager();
                 ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
