@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <Button
+        android:id="@+id/scream_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/police_btn"
+        android:layout_below="@+id/police_btn"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/buttonshape"
+        android:text="Scream" />
+
+    <Button
+        android:id="@+id/help_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/scream_btn"
+        android:layout_below="@+id/scream_btn"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/buttonshape"
+        android:text="Help Me" />
+
+    <Button
+        android:id="@+id/police_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/buttonshape"
+        android:text="Police" />
+
+    <ImageButton
+        android:id="@+id/recordbtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/help_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/imbutton"
+        android:src="@mipmap/stop" />
+
+</RelativeLayout>

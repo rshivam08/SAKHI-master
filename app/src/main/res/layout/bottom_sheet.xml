@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popup_window"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/txt_backup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:drawablePadding="15dp"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txt_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:drawablePadding="15dp"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:text="Details"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.94"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txt_uninstall"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="end"
+            android:drawablePadding="15dp"
+            android:padding="15dp"
+            android:text="Reviews"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textSize="10sp"
+            android:visibility="invisible"
+            tools:textColor="@color/colorPrimaryDark" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
