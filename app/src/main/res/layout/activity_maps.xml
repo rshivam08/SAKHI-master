@@ -1,14 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include
+        <android.support.v7.widget.Toolbar
             android:id="@+id/map_tool"
-            layout="@layout/app_bar" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.Toolbar>
+
+
     </android.support.design.widget.AppBarLayout>
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -18,49 +25,41 @@
         android:layout_height="match_parent"
         tools:context="info.androidhive.materialtabs.activity.MapsActivity" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
-    <ImageButton
+        <ImageView
+            android:id="@+id/toilets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/woman"
+            android:layout_marginStart="15dp"
+            app:srcCompat="@drawable/toilets" />
+
+        <ImageView
         android:id="@+id/woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/emergency" />
+
+        <ImageView
+            android:id="@+id/doctors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="75dp"
-        android:background="#000"
-        android:src="@drawable/w" />
+            app:srcCompat="@drawable/aid" />
 
-    <ImageButton
-        android:id="@+id/toilets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/woman"
-        android:layout_marginTop="32dp"
-        android:background="#000"
-        android:src="@drawable/comtoi" />
 
-    <ImageButton
-        android:id="@+id/doctors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/toilets"
-        android:layout_marginTop="32dp"
-        android:background="#000"
-        android:src="@drawable/comdust" />
-
-    <ImageButton
+        <ImageView
         android:id="@+id/medical_shop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/doctors"
-        android:layout_marginTop="32dp"
-        android:background="#000"
-        android:src="@drawable/m" />
+            app:srcCompat="@drawable/medical" />
 
+    </LinearLayout>
 </RelativeLayout>
