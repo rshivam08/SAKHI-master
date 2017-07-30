@@ -12,9 +12,10 @@ import android.location.LocationListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -76,7 +77,7 @@ import retrofit.RetrofitError;
 
 import static net.simplifiedcoding.shelounge.R.id.map;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private static final String TAG = "1";
@@ -105,8 +106,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_maps);
-
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.map_tool);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("TOILETS");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.textTitleColor));
         MarkerPoints = new ArrayList<>();
         woman = (ImageButton) findViewById(R.id.woman);
         medical_shops = (ImageButton) findViewById(R.id.medical_shop);
@@ -132,6 +135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         medical_shops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getSupportActionBar().setTitle("MEDICAL SHOPS");
                 flag = 1;
                 see_toilets.setImageResource(R.drawable.comtoi);
                 medical_shops.setImageResource(R.drawable.mwhite);
@@ -196,6 +200,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         female_doctors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getSupportActionBar().setTitle("FEMALE DOCTORS");
                 flag = 2;
                 see_toilets.setImageResource(R.drawable.comtoi);
                 medical_shops.setImageResource(R.drawable.m);
@@ -266,6 +271,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         see_toilets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getSupportActionBar().setTitle("TOILETS");
                 flag = 3;
                 see_toilets.setImageResource(R.drawable.comtoiwhite);
                 medical_shops.setImageResource(R.drawable.m);

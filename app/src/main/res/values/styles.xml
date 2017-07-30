@@ -4,8 +4,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#909090</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <style name="AppTheme.Card.Margins" parent="CardView">
@@ -30,6 +31,7 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowAnimationStyle">@style/MaterialDialogSheetAnimation</item>
     </style>
+
 
     <style name="MaterialDialogSheetAnimation">
         <item name="android:windowEnterAnimation">@anim/popup_show</item>
