@@ -3,17 +3,19 @@ package net.simplifiedcoding.shelounge.ui;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.simplifiedcoding.shelounge.R;
+import net.simplifiedcoding.shelounge.ui.WomenSecurity.PentagonActivity;
 import net.simplifiedcoding.shelounge.utils.PrefManager;
 
 import java.util.ArrayList;
@@ -25,43 +27,59 @@ import static net.simplifiedcoding.shelounge.ui.MapsActivity.REQUEST_ID_MULTIPLE
 
 public class IntroActivity extends AppCompatActivity {
 
+    public static int a;
     PrefManager pref;
-    EditText mobile;
-    Button b;
+    ImageView mToilet, mMedical, mDoctor, mEmergency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+        TextView emergency = (TextView) findViewById(R.id.emergency);
+        TextView aid = (TextView) findViewById(R.id.aid);
+        TextView medical = (TextView) findViewById(R.id.medical);
+        TextView toilet = (TextView) findViewById(R.id.toilets);
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+        aid.setTypeface(font);
+        medical.setTypeface(font);
+        toilet.setTypeface(font);
+        emergency.setTypeface(font);
 
         //Requesting storage permission
         checkAndRequestPermissions();
-
-        mobile = (EditText) findViewById(R.id.mobile_number);
-        b = (Button) findViewById(R.id.but);
-        pref = new PrefManager(this);
-
-        if (pref.getmobile() != null) {
-            Intent i = new Intent(IntroActivity.this, MapsActivity.class);
-            startActivity(i);
-            IntroActivity.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_in);
-            finish();
-        }
-
-        b.setOnClickListener(new View.OnClickListener() {
+        mToilet = (ImageView) findViewById(R.id.toilet_image);
+        mMedical = (ImageView) findViewById(R.id.medical_image);
+        mDoctor = (ImageView) findViewById(R.id.aid_image);
+        mEmergency = (ImageView) findViewById(R.id.emergency_image);
+        mToilet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mobile.getText().toString() != null && !mobile.getText().toString().equals("") && mobile.getText().toString().length() == 10) {
-                    pref.setmobile(mobile.getText().toString());
-                    Intent i = new Intent(IntroActivity.this, MapsActivity.class);
-                    startActivity(i);
-                    IntroActivity.this.overridePendingTransition(R.anim.left_in, R.anim.left_out);
-                    finish();
-                } else {
-                    Toast.makeText(IntroActivity.this, "Please Enter Valid Mobile Number", Toast.LENGTH_SHORT).show();
-                }
+                a = 1;
+                startActivity(new Intent(IntroActivity.this, MapsActivity.class));
             }
         });
+        mMedical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = 2;
+                startActivity(new Intent(IntroActivity.this, MapsActivity.class));
+            }
+        });
+        mDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = 3;
+                startActivity(new Intent(IntroActivity.this, MapsActivity.class));
+            }
+        });
+        mEmergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = 4;
+                startActivity(new Intent(IntroActivity.this, PentagonActivity.class));
+            }
+        });
+
 
 
     }

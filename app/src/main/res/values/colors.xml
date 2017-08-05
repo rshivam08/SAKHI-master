@@ -6,5 +6,6 @@
     <color name="green">#a3bc23</color>
     <color name="textColorPrimary">#f9f609</color>
     <color name="textTitleColor">#fef64d</color>
+    <color name="backArrowColor">#000000</color>
 
 </resources>
