@@ -3,8 +3,10 @@ package net.simplifiedcoding.shelounge.ui;
 import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -19,8 +21,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,11 +51,15 @@ import net.simplifiedcoding.shelounge.DetailInterfaces.AvgRating;
 import net.simplifiedcoding.shelounge.DetailInterfaces.DoctorDetail;
 import net.simplifiedcoding.shelounge.DetailInterfaces.NameToilet;
 import net.simplifiedcoding.shelounge.DetailInterfaces.ShopDetail;
+import net.simplifiedcoding.shelounge.Popup.ShowHudService;
 import net.simplifiedcoding.shelounge.R;
+import net.simplifiedcoding.shelounge.fcm.FollowingPreferenceActivity;
+import net.simplifiedcoding.shelounge.fcm.FollowingPreferenceFragment;
 import net.simplifiedcoding.shelounge.ui.Details.DoctorDetailActivity;
 import net.simplifiedcoding.shelounge.ui.Details.ShopsDetailActivity;
 import net.simplifiedcoding.shelounge.ui.Details.ToiletDetailActivity;
 import net.simplifiedcoding.shelounge.ui.WomenSecurity.CheckComplaintActivity;
+import net.simplifiedcoding.shelounge.ui.WomenSecurity.DialogEmergency;
 import net.simplifiedcoding.shelounge.ui.WomenSecurity.PentagonActivity;
 import net.simplifiedcoding.shelounge.utils.AlertDialogManager;
 import net.simplifiedcoding.shelounge.utils.ApiUrl;
@@ -81,6 +91,13 @@ import static net.simplifiedcoding.shelounge.R.id.map;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
+    private static final int LOADER_ID_MESSAGES = 0;
+    private static String LOG_TAG = MapsActivity.class.getSimpleName();
+
+    final int REQUEST_READ_PHONE_STATE=2;
+
+    String imei_num;
+    SharedPreferences preferences;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private static final String TAG = "1";
     public static String mChosenLoc;
@@ -122,6 +139,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
         mTitle.setTypeface(font);
 
+        FollowingPreferenceFragment.isOn = true;
+
         MarkerPoints = new ArrayList<>();
         woman = (ImageView) findViewById(R.id.woman);
         medical_shops = (ImageView) findViewById(R.id.medical_shop);
@@ -130,7 +149,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         pref = new PrefManager(getApplicationContext());
         pref.setEvent("0");
-
+        preferences=getSharedPreferences("pref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("Registered",false);
+        editor.apply();
         final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(map);
 
@@ -138,8 +160,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View view) {
 
-                Intent ws = new Intent(MapsActivity.this, PentagonActivity.class);
+               /* Intent ws = new Intent(MapsActivity.this, PentagonActivity.class);
+                startActivity(ws);*/
+
+                int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_PHONE_STATE);
+
+                if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
+                } else {
+                    //TODO
+
+if (preferences.getBoolean("Registered",false)){
+    DialogEmergency cd = new DialogEmergency(MapsActivity.this);
+    cd.show();
+}
+else {
+     Intent ws = new Intent(MapsActivity.this, PentagonActivity.class);
                 startActivity(ws);
+}
+
+                }
+
+
 
             }
         });
@@ -349,6 +391,40 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mapFragment.getMapAsync(this);
 
+    }
+
+    public static String getDeviceId(Context context){
+        TelephonyManager telephonyManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephonyManager.getDeviceId();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_following_preferences) {
+            // Opens the following activity when the menu icon is pressed
+            Intent startFollowingActivity = new Intent(this, FollowingPreferenceActivity.class);
+            startActivity(startFollowingActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    protected void onDestroy() {
+        if (FollowingPreferenceFragment.isOn == true) {
+            Intent i = new Intent(MapsActivity.this, ShowHudService.class);
+            startService(i);
+            finish();
+        }
+        super.onDestroy();
     }
 
     /**
@@ -826,6 +902,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                            String permissions[], int[] grantResults) {
         Log.d(TAG, "Permission callback called-------");
         switch (requestCode) {
+            case REQUEST_READ_PHONE_STATE:
+                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    //TODO
+                    imei_num = getDeviceId(getApplicationContext());
+
+                    DialogEmergency cd = new DialogEmergency(MapsActivity.this);
+                    cd.show();
+
+                }
+                break;
+
             case REQUEST_ID_MULTIPLE_PERMISSIONS: {
 
                 Map<String, Integer> perms = new HashMap<>();

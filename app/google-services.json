@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "883938634519",
+    "firebase_url": "https://sakhi-master-2395c.firebaseio.com",
+    "project_id": "sakhi-master-2395c",
+    "storage_bucket": "sakhi-master-2395c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883938634519:android:fee15f251920103c",
+        "android_client_info": {
+          "package_name": "net.simplifiedcoding.shelounge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883938634519-qje24477l7rlnugj6ivgrr4brqi19spl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtE_TtavZ7WYZA7fsOeRqcUkyavErhxX4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

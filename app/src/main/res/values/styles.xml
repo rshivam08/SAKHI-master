@@ -5,9 +5,30 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#909090</item>
         <item name="colorPrimaryDark">#909090</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#000</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="colorControlNormal">#000</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/textTitleColor</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/textTitleColor</item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/textTitleColor</item>
+        <item name="colorControlNormal">@color/textTitleColor</item>
+        <item name="colorControlActivated">@color/textTitleColor</item>
+
+        <item name="android:textColorHint">#000</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
