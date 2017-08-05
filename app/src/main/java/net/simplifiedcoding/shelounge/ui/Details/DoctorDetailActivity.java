@@ -1,10 +1,16 @@
 package net.simplifiedcoding.shelounge.ui.Details;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,13 +35,24 @@ import retrofit.RetrofitError;
 
 public class DoctorDetailActivity extends AppCompatActivity {
     String JOutput;
-
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_detail);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
+        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+        collapsingToolbarLayout.setExpandedTitleTypeface(font);
+        collapsingToolbarLayout.setCollapsedTitleTypeface(font);
+        String doc = getIntent().getStringExtra("DOCTOR");
 
+        getSupportActionBar().setTitle(doc);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         try {
             RestAdapter adapter = new RestAdapter.Builder()
@@ -69,26 +86,54 @@ public class DoctorDetailActivity extends AppCompatActivity {
                                     String add = current.getString("Address");
                                     String t = current.getString("Timings");
                                     String img = current.getString("image_url");
-                                    TextView name = (TextView) findViewById(R.id.name);
+                                    // TextView name = (TextView) findViewById(R.id.title);
                                     TextView address = (TextView) findViewById(R.id.address);
+                                    TextView telephone = (TextView) findViewById(R.id.telephone);
                                     TextView cli = (TextView) findViewById(R.id.cli);
                                     TextView time = (TextView) findViewById(R.id.time);
-                                    name.setText(doc_name);
+                                    //name.setText(doc_name);
                                     cli.setText(cli_name);
-                                    address.setText("ADDRESS: " + add);
-                                    time.setText("TIMINGS: " + t);
-                                    ImageView imge = (ImageView) findViewById(R.id.imge);
-                                    CardView cv = (CardView) findViewById(R.id.cv);
+                                    address.setText("" + add);
+                                    time.setText("" + t);
+                                    telephone.setText(phone);
+
+                                    //ImageView imge = (ImageView) findViewById(R.id.imge);
+                                    FloatingActionButton cv = (FloatingActionButton) findViewById(R.id.img_call);
+                                    ImageView pic = (ImageView) findViewById(R.id.pic);
+                                    //getSupportActionBar().setTitle(cli_name);
                                     cv.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             Intent in = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
+                                            if (ActivityCompat.checkSelfPermission(DoctorDetailActivity.this, Manifest.permission.CALL_PHONE)
+                                                    != PackageManager.PERMISSION_GRANTED) {
+                                                // TODO: Consider calling
+                                                //    ActivityCompat#requestPermissions
+                                                // here to request the missing permissions, and then overriding
+                                                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                                //                                          int[] grantResults)
+                                                // to handle the case where the user grants the permission. See the documentation
+                                                // for ActivityCompat#requestPermissions for more details.
+                                                return;
+                                            }
                                             startActivity(in);
                                         }
                                     });
-                                    Glide.with(DoctorDetailActivity.this).load(img).into(imge);
-
-
+                                    Glide.with(DoctorDetailActivity.this).load(img).into(pic);
+                                    TextView addr = (TextView) findViewById(R.id.add);
+                                    TextView no = (TextView) findViewById(R.id.no);
+                                    TextView overview = (TextView) findViewById(R.id.overview);
+                                    TextView timings = (TextView) findViewById(R.id.timings);
+                                    Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+                                    cli.setTypeface(font);
+                                    telephone.setTypeface(font);
+                                    time.setTypeface(font);
+                                    address.setTypeface(font);
+                                    addr.setTypeface(font);
+                                    no.setTypeface(font);
+                                    timings.setTypeface(font);
+                                    //name.setTypeface(font);
+                                    overview.setTypeface(font);
                                 }
                             } catch (JSONException e) {
                                 Log.e("QueryUtils", "Problem parsing the JSON results", e);

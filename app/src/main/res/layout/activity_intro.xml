@@ -1,67 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#fff35f"
     tools:context="net.simplifiedcoding.shelounge.ui.IntroActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#d7f5fa5b"
-        android:orientation="vertical"
-        android:padding="30dp">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="She"
-            android:textSize="80dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Lounge"
-            android:textSize="70dp" />
-
-        <EditText
-            android:id="@+id/mobile_number"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:background="#f9f2f2"
-            android:gravity="center"
-            android:hint="Enter Mobile Number"
-
-            android:inputType="number"
-            android:textSize="30dp" />
-
-
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/but"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/medical"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#000"
-        android:text="Proceed"
-        android:textColor="#fff"
-        android:textSize="25dp" />
+        android:layout_alignEnd="@+id/emergency"
+        android:layout_alignStart="@+id/toilets"
+        android:layout_below="@+id/medical_image"
+        android:background="#fff67d"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="MEDICAL SHOPS"
+        android:textColor="#000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/emergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/toilets"
+        android:layout_alignStart="@+id/toilets"
+        android:layout_below="@+id/emergency_image"
+        android:background="#fff67d"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="EMERGENCY"
+        android:textColor="#000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/toilets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toilet_image"
+        android:layout_centerHorizontal="true"
+        android:background="#fff67d"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="NEAR BY TOILETS"
+        android:textColor="#000"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/toilet_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignStart="@+id/medical_image"
+        android:layout_marginTop="24dp"
+        app:srcCompat="@drawable/toilet_big" />
+
+    <ImageView
+        android:id="@+id/aid_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emergency"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/aid_big" />
+
+    <ImageView
+        android:id="@+id/emergency_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/toilet_image"
+        android:layout_below="@+id/toilets"
+        app:srcCompat="@drawable/emergency_big" />
+
+    <ImageView
+        android:id="@+id/medical_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/aid_image"
+        android:layout_below="@+id/aid"
+        app:srcCompat="@drawable/medical_big" />
+
+    <TextView
+        android:id="@+id/aid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/medical"
+        android:layout_alignStart="@+id/medical"
+        android:layout_below="@+id/aid_image"
+        android:background="#fff67d"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="AID"
+        android:textColor="#000"
+        android:textSize="15sp" />
 
 </RelativeLayout>
