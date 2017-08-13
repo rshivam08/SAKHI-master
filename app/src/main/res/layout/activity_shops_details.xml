@@ -38,9 +38,11 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_scrolling_shop" />
+
 
 </android.support.design.widget.CoordinatorLayout>

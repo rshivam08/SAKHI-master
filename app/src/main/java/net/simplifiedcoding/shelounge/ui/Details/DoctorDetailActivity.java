@@ -86,22 +86,17 @@ public class DoctorDetailActivity extends AppCompatActivity {
                                     String add = current.getString("Address");
                                     String t = current.getString("Timings");
                                     String img = current.getString("image_url");
-                                    // TextView name = (TextView) findViewById(R.id.title);
                                     TextView address = (TextView) findViewById(R.id.address);
                                     TextView telephone = (TextView) findViewById(R.id.telephone);
                                     TextView cli = (TextView) findViewById(R.id.cli);
                                     TextView time = (TextView) findViewById(R.id.time);
-                                    //name.setText(doc_name);
                                     cli.setText(cli_name);
                                     address.setText("" + add);
                                     time.setText("" + t);
                                     telephone.setText(phone);
-
-                                    //ImageView imge = (ImageView) findViewById(R.id.imge);
-                                    FloatingActionButton cv = (FloatingActionButton) findViewById(R.id.img_call);
+                                    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.img_call);
                                     ImageView pic = (ImageView) findViewById(R.id.pic);
-                                    //getSupportActionBar().setTitle(cli_name);
-                                    cv.setOnClickListener(new View.OnClickListener() {
+                                    fab.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             Intent in = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
@@ -132,7 +127,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
                                     addr.setTypeface(font);
                                     no.setTypeface(font);
                                     timings.setTypeface(font);
-                                    //name.setTypeface(font);
                                     overview.setTypeface(font);
                                 }
                             } catch (JSONException e) {

@@ -280,7 +280,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 mTitle.setText("TOILETS");
-                getSupportActionBar().setIcon(R.drawable.emergency_small);
+                getSupportActionBar().setIcon(R.drawable.toilet_small);
                 flag = 3;
 
                 AlertDialogManager alert = new AlertDialogManager();
@@ -1201,6 +1201,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 case 3:
                     mTitle.setText("FEMALE DOCTORS");
                     getSupportActionBar().setIcon(R.drawable.aid_small);
+
                     //getSupportActionBar().setTitle("FEMALE DOCTORS");
                     flag = 2;
 

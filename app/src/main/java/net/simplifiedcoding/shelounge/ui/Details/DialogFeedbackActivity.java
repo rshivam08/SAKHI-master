@@ -37,10 +37,8 @@ import retrofit.client.Response;
 public class DialogFeedbackActivity extends Dialog implements View.OnClickListener {
     public static final String ROOT_URL = "http://ric-tiiciiitm.webhostingforstudents.com/sakhi";
     public Activity c;
-    public Dialog d;
     public RatingBar mRate;
-    // public EditText mComment;
-    public Button mDone, mCancel;
+    public Button mDone;
 
     public DialogFeedbackActivity(Activity a) {
         super(a);
@@ -57,14 +55,11 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
         LayerDrawable stars = (LayerDrawable) mRate.getProgressDrawable();
         stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
         stars.getDrawable(0).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
-        //  mComment = (EditText) findViewById(R.id.feed);
         mDone = (Button) findViewById(R.id.done);
         TextView feed = (TextView) findViewById(R.id.feedback);
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/lithos.ttf");
         feed.setTypeface(font);
-        // mCancel = (Button) findViewById(R.id.cancel);
         mDone.setOnClickListener(this);
-//        mCancel.setOnClickListener(this);
 
     }
 
@@ -95,7 +90,6 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
 
                 "Anonymous",
                 mRate.getRating(),
-                // mComment.getText().toString(),
                 strDate
                 ,
                 MapsActivity.mChosenLoc,
@@ -114,7 +108,6 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        // Toast.makeText(getContext(), output, Toast.LENGTH_LONG).show();
 
                     }
 

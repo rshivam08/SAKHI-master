@@ -52,7 +52,7 @@ public class ToiletFeedbackActivity extends AppCompatActivity {
         name();
         detail();
 
-        Toast.makeText(ToiletFeedbackActivity.this, st, Toast.LENGTH_LONG).show();
+        //Toast.makeText(ToiletFeedbackActivity.this, st, Toast.LENGTH_LONG).show();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -26,27 +27,45 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.danielkim.soundrecorder.activities.MainActivity;
+
+import net.simplifiedcoding.shelounge.DetailInterfaces.UserMsgs;
 import net.simplifiedcoding.shelounge.R;
 import net.simplifiedcoding.shelounge.ui.CurrentLocationsActivity;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 public class PentagonActivity extends AppCompatActivity implements SensorEventListener, LocationListener {
@@ -54,9 +73,14 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
 
     //storage permission code
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int MEDIA_TYPE_VIDEO = 2;
     final static int PICK_CONTACT = 3;
     private static final int REQUEST_WRITE_STORAGE = 112;
     private static final String TAG = "1";
+    private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+    private static final int CAMERA_CAPTURE_VIDEO_REQUEST_CODE = 200;
+    private static final String IMAGE_DIRECTORY_NAME = "Hello Camera";
     public static String[] stored_number = new String[5];
     public static String[] stored_names = new String[5];
     static double latitude;
@@ -70,10 +94,41 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
     int counter = 0;
     String provider;
     LocationManager locationManager;
+    private Uri fileUri;
     private float mLastX, mLastY, mLastZ;
     private boolean mInitialized;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
+
+    private static File getOutputMediaFile(int type) {
+
+        // External sdcard location
+        File mediaStorageDir = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                IMAGE_DIRECTORY_NAME);
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d(IMAGE_DIRECTORY_NAME, "Oops! Failed create "
+                        + IMAGE_DIRECTORY_NAME + " directory");
+                return null;
+            }
+        }
+
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
+        File mediaFile;
+        if (type == MEDIA_TYPE_IMAGE) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                    + "IMG_" + timeStamp + ".jpg");
+        } else {
+            return null;
+        }
+        return mediaFile;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +138,14 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
         CurrentLocationsActivity m = new CurrentLocationsActivity();
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.map_tool);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
 
+        TextView mTitle = (TextView) findViewById(R.id.toolbar_text);
+        mTitle.setText("EMERGENCY TRACK");
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+        mTitle.setTypeface(font);
         // Getting the name of the provider that meets the criteria
         provider = locationManager.getBestProvider(criteria, false);
 
@@ -106,8 +168,8 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
 
             if (location != null)
                 onLocationChanged(location);
-            else
-                Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
+            //else
+            // Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
@@ -202,10 +264,10 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
             @Override
             public void onClick(View v) {
 
-
-                Intent openaudio = new Intent(getApplicationContext(), AudioActivity.class);
+                startActivity(new Intent(PentagonActivity.this, MainActivity.class));
+                /*Intent openaudio = new Intent(getApplicationContext(), AudioActivity.class);
                 startActivity(openaudio);
-                finish();
+                finish();*/
 
 
             }
@@ -264,7 +326,27 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
 
         super.onActivityResult(reqCode, resultCode, data);
         switch (reqCode) {
-
+            case (CAMERA_CAPTURE_IMAGE_REQUEST_CODE):
+                if (resultCode == RESULT_OK) {
+                    // successfully captured the image
+                    // display it in image view
+                    try {
+                        sendMessae();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                } else if (resultCode == RESULT_CANCELED) {
+                    // user cancelled Image capture
+                    Toast.makeText(getApplicationContext(),
+                            "User cancelled image capture", Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    // failed to capture image
+                    Toast.makeText(getApplicationContext(),
+                            "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                break;
             case (PICK_CONTACT):
                 if (resultCode == Activity.RESULT_OK) {
                     Uri contactData = data.getData();
@@ -381,8 +463,53 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
 
 
         // TODO Auto-gepnerated method stub
+        RestAdapter adapter = new RestAdapter.Builder()
+                .setEndpoint("http://ric-tiiciiitm.webhostingforstudents.com/sakhi/").build();
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy / MM / dd ");
+
+        String strDate = mdformat.format(calendar.getTime());
+
+        UserMsgs api = adapter.create(UserMsgs.class);
+        api.insertUser(
+
+                "imei",
+                stored_number[0],
+                stored_number[1],
+                stored_number[2],
+                stored_number[3],
+                stored_number[4],
+                strDate
+                ,
+
+
+                new Callback<Response>() {
+
+                    @Override
+                    public void success(Response result, Response response) {
+                        BufferedReader reader = null;
+                        String output = "";
+                        try {
+                            reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
+
+                            //Reading the output in the string
+                            output = reader.readLine();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        // Toast.makeText(getContext(), output, Toast.LENGTH_LONG).show();
+
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Toast.makeText(PentagonActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(theNumber, null, myMsg, sentPI, deliveredPI);
+
 
     }
 
@@ -444,14 +571,42 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
             set(i + 1);
 
         }
-        Toast pp = Toast.makeText(this, "no_of_contact=" + " " + counter, Toast.LENGTH_LONG);
-        pp.show();
+        //Toast pp = Toast.makeText(this, "no_of_contact=" + " " + counter, Toast.LENGTH_LONG);
+        //pp.show();
+
+    }
+
+    public Uri getOutputMediaFileUri(int type) {
+        return Uri.fromFile(getOutputMediaFile(type));
+    }
+
+    public void sendMessae() throws FileNotFoundException {
+
+        //You can read the image from external drove too
+        Uri uri = Uri.parse("android.resource://com.code2care.example.whatsappintegrationexample/drawable/mona");
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_STREAM, fileUri);
+        intent.setType("image/jpeg");
+        intent.setPackage("com.whatsapp");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        try {
+            startActivity(intent);
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "Whatsapp have not been installed.", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
     private void opencamera() {
 
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+        // start the image capture Intent
+        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
         // startActivityForResult(intent, 10);
 
 
@@ -473,24 +628,7 @@ public class PentagonActivity extends AppCompatActivity implements SensorEventLi
         startActivity(callintent);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @TargetApi(Build.VERSION_CODES.CUPCAKE)
     protected void onResume() {

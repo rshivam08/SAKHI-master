@@ -34,12 +34,12 @@ public class ShopsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        setContentView(R.layout.activity_shops_details);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //String doc=getIntent().getStringExtra("NAME");
-        //getSupportActionBar().setTitle(doc);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.activity_shops_details);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         try {
             RestAdapter adapter = new RestAdapter.Builder()
                     .setEndpoint("http://ric-tiiciiitm.webhostingforstudents.com/sakhi/").build();
