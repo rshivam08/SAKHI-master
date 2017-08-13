@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_file_viewer" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:orientation="vertical" android:padding="8dp">
+
+    <Button android:id="@+id/btn" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="ADD A CONTACT" />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="8dp" android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginRight="8dp" android:text="NAME:" />
+        <TextView android:id="@+id/name" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="ADD YOUR CONTACT NAME" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="8dp" android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginRight="8dp" android:text="NUMBER:" />
+        <TextView android:id="@+id/number" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="ADD YOUR CONTACT NAME" />
+    </LinearLayout>
+
+
+</LinearLayout>
