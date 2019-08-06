@@ -1,0 +1,278 @@
+[
+    {
+        "outputFile": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-land\\values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 61,
+                    "endOffset": 112
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 61,
+                        "endOffset": 113
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 117,
+                    "endColumn": 71,
+                    "endOffset": 184
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 118,
+                        "endColumn": 71,
+                        "endOffset": 185
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 189,
+                    "endColumn": 69,
+                    "endOffset": 254
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 191,
+                        "endColumn": 69,
+                        "endOffset": 256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 259,
+                    "endColumn": 69,
+                    "endOffset": 324
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 261,
+                        "endColumn": 69,
+                        "endOffset": 326
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 329,
+                    "endColumn": 63,
+                    "endOffset": 388
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 331,
+                        "endColumn": 63,
+                        "endOffset": 390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 393,
+                    "endColumn": 70,
+                    "endOffset": 459
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 395,
+                        "endColumn": 70,
+                        "endOffset": 461
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 464,
+                    "endColumn": 67,
+                    "endOffset": 527
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-land\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 466,
+                        "endColumn": 67,
+                        "endOffset": 529
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 61,
+                    "endOffset": 112
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 61,
+                        "endOffset": 113
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 117,
+                    "endColumn": 71,
+                    "endOffset": 184
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 118,
+                        "endColumn": 71,
+                        "endOffset": 185
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 189,
+                    "endColumn": 69,
+                    "endOffset": 254
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 191,
+                        "endColumn": 69,
+                        "endOffset": 256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 259,
+                    "endColumn": 69,
+                    "endOffset": 324
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 261,
+                        "endColumn": 69,
+                        "endOffset": 326
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 329,
+                    "endColumn": 63,
+                    "endOffset": 388
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 331,
+                        "endColumn": 63,
+                        "endOffset": 390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 393,
+                    "endColumn": 70,
+                    "endOffset": 459
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 395,
+                        "endColumn": 70,
+                        "endOffset": 461
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 464,
+                    "endColumn": 67,
+                    "endOffset": 527
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-land/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 466,
+                        "endColumn": 67,
+                        "endOffset": 529
+                    }
+                }
+            }
+        ]
+    }
+]

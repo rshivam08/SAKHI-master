@@ -1,0 +1,1038 @@
+[
+    {
+        "outputFile": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-eo/values-eo.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 54,
+                        "endOffset": 105
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 51,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 110,
+                        "endColumn": 51,
+                        "endOffset": 157
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 50,
+                    "endOffset": 208
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 50,
+                        "endOffset": 208
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 213,
+                    "endColumn": 62,
+                    "endOffset": 271
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 213,
+                        "endColumn": 62,
+                        "endOffset": 271
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 276,
+                    "endColumn": 55,
+                    "endOffset": 327
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 55,
+                        "endOffset": 327
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 332,
+                    "endColumn": 47,
+                    "endOffset": 375
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 332,
+                        "endColumn": 47,
+                        "endOffset": 375
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 380,
+                    "endColumn": 49,
+                    "endOffset": 425
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 380,
+                        "endColumn": 49,
+                        "endOffset": 425
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 430,
+                    "endColumn": 49,
+                    "endOffset": 475
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 430,
+                        "endColumn": 49,
+                        "endOffset": 475
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 480,
+                    "endColumn": 62,
+                    "endOffset": 538
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 480,
+                        "endColumn": 62,
+                        "endOffset": 538
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 543,
+                    "endColumn": 65,
+                    "endOffset": 604
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 543,
+                        "endColumn": 65,
+                        "endOffset": 604
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 609,
+                    "endColumn": 89,
+                    "endOffset": 694
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 609,
+                        "endColumn": 89,
+                        "endOffset": 694
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 699,
+                    "endColumn": 67,
+                    "endOffset": 762
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 699,
+                        "endColumn": 67,
+                        "endOffset": 762
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 767,
+                    "endColumn": 75,
+                    "endOffset": 838
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 767,
+                        "endColumn": 75,
+                        "endOffset": 838
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 843,
+                    "endColumn": 55,
+                    "endOffset": 894
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 843,
+                        "endColumn": 55,
+                        "endOffset": 894
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 899,
+                    "endColumn": 66,
+                    "endOffset": 961
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 899,
+                        "endColumn": 66,
+                        "endOffset": 961
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 966,
+                    "endColumn": 85,
+                    "endOffset": 1047
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 966,
+                        "endColumn": 85,
+                        "endOffset": 1047
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1052,
+                    "endColumn": 64,
+                    "endOffset": 1112
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1052,
+                        "endColumn": 64,
+                        "endOffset": 1112
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1117,
+                    "endColumn": 58,
+                    "endOffset": 1171
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1117,
+                        "endColumn": 58,
+                        "endOffset": 1171
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1176,
+                    "endColumn": 57,
+                    "endOffset": 1229
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1176,
+                        "endColumn": 57,
+                        "endOffset": 1229
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1234,
+                    "endColumn": 73,
+                    "endOffset": 1303
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1234,
+                        "endColumn": 73,
+                        "endOffset": 1303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1308,
+                    "endColumn": 59,
+                    "endOffset": 1363
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1308,
+                        "endColumn": 59,
+                        "endOffset": 1363
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1368,
+                    "endColumn": 53,
+                    "endOffset": 1417
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1368,
+                        "endColumn": 53,
+                        "endOffset": 1417
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1422,
+                    "endColumn": 78,
+                    "endOffset": 1496
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1422,
+                        "endColumn": 78,
+                        "endOffset": 1496
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1501,
+                    "endColumn": 73,
+                    "endOffset": 1570
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1501,
+                        "endColumn": 73,
+                        "endOffset": 1570
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1575,
+                    "endColumn": 112,
+                    "endOffset": 1683
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1575,
+                        "endColumn": 112,
+                        "endOffset": 1683
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1688,
+                    "endColumn": 75,
+                    "endOffset": 1759
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1688,
+                        "endColumn": 75,
+                        "endOffset": 1759
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1764,
+                    "endColumn": 69,
+                    "endOffset": 1829
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/bundles/debug/res/values-eo/values-eo.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1764,
+                        "endColumn": 69,
+                        "endOffset": 1829
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-eo\\values-eo.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 54,
+                        "endOffset": 105
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 51,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 110,
+                        "endColumn": 51,
+                        "endOffset": 157
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 50,
+                    "endOffset": 208
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 50,
+                        "endOffset": 208
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 213,
+                    "endColumn": 62,
+                    "endOffset": 271
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 213,
+                        "endColumn": 62,
+                        "endOffset": 271
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 276,
+                    "endColumn": 55,
+                    "endOffset": 327
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 55,
+                        "endOffset": 327
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 332,
+                    "endColumn": 47,
+                    "endOffset": 375
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 332,
+                        "endColumn": 47,
+                        "endOffset": 375
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 380,
+                    "endColumn": 49,
+                    "endOffset": 425
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 380,
+                        "endColumn": 49,
+                        "endOffset": 425
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 430,
+                    "endColumn": 49,
+                    "endOffset": 475
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 430,
+                        "endColumn": 49,
+                        "endOffset": 475
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 480,
+                    "endColumn": 62,
+                    "endOffset": 538
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 480,
+                        "endColumn": 62,
+                        "endOffset": 538
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 543,
+                    "endColumn": 65,
+                    "endOffset": 604
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 543,
+                        "endColumn": 65,
+                        "endOffset": 604
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 609,
+                    "endColumn": 89,
+                    "endOffset": 694
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 609,
+                        "endColumn": 89,
+                        "endOffset": 694
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 699,
+                    "endColumn": 67,
+                    "endOffset": 762
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 699,
+                        "endColumn": 67,
+                        "endOffset": 762
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 767,
+                    "endColumn": 75,
+                    "endOffset": 838
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 767,
+                        "endColumn": 75,
+                        "endOffset": 838
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 843,
+                    "endColumn": 55,
+                    "endOffset": 894
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 843,
+                        "endColumn": 55,
+                        "endOffset": 894
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 899,
+                    "endColumn": 66,
+                    "endOffset": 961
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 899,
+                        "endColumn": 66,
+                        "endOffset": 961
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 966,
+                    "endColumn": 85,
+                    "endOffset": 1047
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 966,
+                        "endColumn": 85,
+                        "endOffset": 1047
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1052,
+                    "endColumn": 64,
+                    "endOffset": 1112
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1052,
+                        "endColumn": 64,
+                        "endOffset": 1112
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1117,
+                    "endColumn": 58,
+                    "endOffset": 1171
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1117,
+                        "endColumn": 58,
+                        "endOffset": 1171
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1176,
+                    "endColumn": 57,
+                    "endOffset": 1229
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1176,
+                        "endColumn": 57,
+                        "endOffset": 1229
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1234,
+                    "endColumn": 73,
+                    "endOffset": 1303
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1234,
+                        "endColumn": 73,
+                        "endOffset": 1303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1308,
+                    "endColumn": 59,
+                    "endOffset": 1363
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1308,
+                        "endColumn": 59,
+                        "endOffset": 1363
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1368,
+                    "endColumn": 53,
+                    "endOffset": 1417
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1368,
+                        "endColumn": 53,
+                        "endOffset": 1417
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1422,
+                    "endColumn": 78,
+                    "endOffset": 1496
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1422,
+                        "endColumn": 78,
+                        "endOffset": 1496
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1501,
+                    "endColumn": 73,
+                    "endOffset": 1570
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1501,
+                        "endColumn": 73,
+                        "endOffset": 1570
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1575,
+                    "endColumn": 112,
+                    "endOffset": 1683
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1575,
+                        "endColumn": 112,
+                        "endOffset": 1683
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1688,
+                    "endColumn": 75,
+                    "endOffset": 1759
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1688,
+                        "endColumn": 75,
+                        "endOffset": 1759
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1764,
+                    "endColumn": 69,
+                    "endOffset": 1829
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\bundles\\debug\\res\\values-eo\\values-eo.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1764,
+                        "endColumn": 69,
+                        "endOffset": 1829
+                    }
+                }
+            }
+        ]
+    }
+]

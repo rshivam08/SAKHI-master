@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Siirry etusivulle"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Siirry ylös"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Lisää"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Valmis"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Näytä kaikki"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Valitse sovellus"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Tyhjennä kysely"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Hakulauseke"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Haku"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Lähetä kysely"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Puhehaku"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Jakaminen:"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Jakaminen: %s"</string>
+    <string name="action_licenses">Lisenssit</string>
+    <string name="action_settings">Asetukset</string>
+    <string name="app_name">Nauhuri</string>
+    <string name="default_file_name">Äänitykseni</string>
+    <string name="dialog_action_cancel">Peruuta</string>
+    <string name="dialog_action_no">Ei</string>
+    <string name="dialog_action_ok">OK</string>
+    <string name="dialog_action_yes">Kyllä</string>
+    <string name="dialog_file_delete">Poista tiedosto</string>
+    <string name="dialog_file_rename">Nimeä tiedosto uudelleen</string>
+    <string name="dialog_text_delete">Haluatko varmasti poistaa tämän tiedoston?</string>
+    <string name="dialog_title_delete">Vahvista poisto...</string>
+    <string name="dialog_title_licenses">Avoimen lähdekoodin lisenssit</string>
+    <string name="dialog_title_options">Valinnat</string>
+    <string name="dialog_title_rename">Nimeä tiedosto uudelleen</string>
+    <string name="no_saved_recordings_message">Ei tallennettuja äänityksiä</string>
+    <string name="notification_recording">Äänitetään...</string>
+    <string name="pause_recording_button">Tauko</string>
+    <string name="record_in_progress">Äänitetään</string>
+    <string name="record_prompt">Napauta painiketta aloittaaksesi äänittämisen</string>
+    <string name="resume_recording_button">Jatka</string>
+    <string name="tab_title_record">Äänitä</string>
+    <string name="tab_title_saved_recordings">Tallennetut äänitykset</string>
+    <string name="toast_file_delete">%1$s poistettiin onnistuneesti</string>
+    <string name="toast_file_exists">Tiedosto %1$s on jo olemassa. Valitse jokin toinen tiedostonimi.</string>
+    <string name="toast_recording_finish">Äänitys tallennettu kohteeseen</string>
+    <string name="toast_recording_start">Äänitys aloitettu</string>
+</resources>

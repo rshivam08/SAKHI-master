@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Ir a la pantalla de inicio"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Desplazarse hacia arriba"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Más opciones"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Listo"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Seleccionar una aplicación"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Borrar consulta"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Consulta"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Buscar"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Búsqueda por voz"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartir con"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Compartir con %s"</string>
+    <string name="action_licenses">Licencias</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="app_name">Sound Recorder</string>
+    <string name="default_file_name">Mi grabación</string>
+    <string name="dialog_action_cancel">Cancelar</string>
+    <string name="dialog_action_no">No</string>
+    <string name="dialog_action_ok">Aceptar</string>
+    <string name="dialog_action_yes">Sí</string>
+    <string name="dialog_file_delete">Eliminar archivo</string>
+    <string name="dialog_file_rename">Renombrar archivo</string>
+    <string name="dialog_text_delete">¿Está seguro que desea eliminar el archivo?</string>
+    <string name="dialog_title_delete">Confirmar eliminación...</string>
+    <string name="dialog_title_licenses">Licencias de Código Abierto</string>
+    <string name="dialog_title_options">Opciones</string>
+    <string name="dialog_title_rename">Renombrar archivo</string>
+    <string name="license_author_fab">Oleksandr Melnykov</string>
+    <string name="license_author_tabs">Andreas Stuetz</string>
+    <string name="license_content_fab">
+        The MIT License (MIT)
+        \n\nCopyright 2014 Oleksandr Melnykov
+
+        \n\nPermission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+
+        \n\nThe above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+
+        \n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+    </string>
+    <string name="license_content_tabs">
+        Copyright 2013 Andreas Stuetz
+
+        \n\nLicensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+    <string name="license_title_fab">Floating Action Button</string>
+    <string name="license_title_tabs">PagerSlidingTabStrip</string>
+    <string name="no_saved_recordings_message">Sin grabaciones guardadas</string>
+    <string name="notification_recording">Grabando...</string>
+    <string name="pause_recording_button">Pausar</string>
+    <string name="record_in_progress">Grabando</string>
+    <string name="record_prompt">Pulse el botón para iniciar la grabación</string>
+    <string name="resume_recording_button">Continuar</string>
+    <string name="tab_title_record">Grabar</string>
+    <string name="tab_title_saved_recordings">Guardar grabaciones</string>
+    <string name="toast_file_delete">Se eliminó %1$s con éxito</string>
+    <string name="toast_file_exists">El archivo %1$s ya existe. Elija un nombre de archivo diferente.</string>
+    <string name="toast_recording_finish">Grabación guardada en</string>
+    <string name="toast_recording_start">Grabación iniciada</string>
+</resources>

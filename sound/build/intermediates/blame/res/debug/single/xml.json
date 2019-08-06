@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\res\\merged\\debug\\xml\\filepaths.xml",
+        "source": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\src\\main\\res\\xml\\filepaths.xml"
+    },
+    {
+        "merged": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/res/merged/debug/xml/filepaths.xml",
+        "source": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/src/main/res/xml/filepaths.xml"
+    },
+    {
+        "merged": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\src\\main\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/src/main/res/xml/preferences.xml"
+    }
+]

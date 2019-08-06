@@ -1,0 +1,278 @@
+[
+    {
+        "outputFile": "/home/shivam/Documents/AndroidProjects/Sakhi-master/E:\\Android projects\\Sakhi-master\\sound\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 76,
+                        "endOffset": 128
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 132,
+                    "endColumn": 63,
+                    "endOffset": 191
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 134,
+                        "endColumn": 63,
+                        "endOffset": 193
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 196,
+                    "endColumn": 66,
+                    "endOffset": 258
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 199,
+                        "endColumn": 66,
+                        "endOffset": 261
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 263,
+                    "endColumn": 66,
+                    "endOffset": 325
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 266,
+                        "endColumn": 66,
+                        "endOffset": 328
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 330,
+                    "endColumn": 65,
+                    "endOffset": 391
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 333,
+                        "endColumn": 65,
+                        "endOffset": 394
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 396,
+                    "endColumn": 65,
+                    "endOffset": 457
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 399,
+                        "endColumn": 65,
+                        "endOffset": 460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 462,
+                    "endColumn": 54,
+                    "endOffset": 512
+                },
+                "from": {
+                    "file": "/home/shivam/Documents/AndroidProjects/Sakhi-master/C:\\Users\\Shivam\\.android\\build-cache\\9a9b664fd619733719a95b4bd6a17f84eafd57f4\\output\\res\\values-xlarge\\values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 466,
+                        "endColumn": 54,
+                        "endOffset": 516
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/shivam/Documents/AndroidProjects/Sakhi-master/sound/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 76,
+                    "endOffset": 127
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 76,
+                        "endOffset": 128
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 132,
+                    "endColumn": 63,
+                    "endOffset": 191
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 134,
+                        "endColumn": 63,
+                        "endOffset": 193
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 196,
+                    "endColumn": 66,
+                    "endOffset": 258
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 199,
+                        "endColumn": 66,
+                        "endOffset": 261
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 263,
+                    "endColumn": 66,
+                    "endOffset": 325
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 266,
+                        "endColumn": 66,
+                        "endOffset": 328
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 330,
+                    "endColumn": 65,
+                    "endOffset": 391
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 333,
+                        "endColumn": 65,
+                        "endOffset": 394
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 396,
+                    "endColumn": 65,
+                    "endOffset": 457
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 399,
+                        "endColumn": 65,
+                        "endOffset": 460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 462,
+                    "endColumn": 54,
+                    "endOffset": 512
+                },
+                "from": {
+                    "file": "/home/shivam/.android/build-cache/79b0db3f99436a1550d139a488fc82c70b6f08dc/output/res/values-xlarge/values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 466,
+                        "endColumn": 54,
+                        "endOffset": 516
+                    }
+                }
+            }
+        ]
+    }
+]
