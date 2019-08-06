@@ -17,7 +17,7 @@ public interface InsertFeedback {
 
             @Field("user") String user,
             @Field("rating") float rating,
-            @Field("comment") String comment,
+            //  @Field("comment") String comment,
             @Field("date") String date,
             @Field("LONGITUDE") String SN,
             Callback<Response> callback);

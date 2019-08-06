@@ -2,12 +2,17 @@ package net.simplifiedcoding.shelounge.ui.Details;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.simplifiedcoding.shelounge.DetailInterfaces.InsertFeedback;
@@ -34,7 +39,7 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
     public Activity c;
     public Dialog d;
     public RatingBar mRate;
-    public EditText mComment;
+    // public EditText mComment;
     public Button mDone, mCancel;
 
     public DialogFeedbackActivity(Activity a) {
@@ -46,13 +51,20 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.custom_dialog);
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        setContentView(R.layout.activity_layout);
         mRate = (RatingBar) findViewById(R.id.rate);
-        mComment = (EditText) findViewById(R.id.feed);
+        LayerDrawable stars = (LayerDrawable) mRate.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
+        stars.getDrawable(0).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+        //  mComment = (EditText) findViewById(R.id.feed);
         mDone = (Button) findViewById(R.id.done);
-        mCancel = (Button) findViewById(R.id.cancel);
+        TextView feed = (TextView) findViewById(R.id.feedback);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/lithos.ttf");
+        feed.setTypeface(font);
+        // mCancel = (Button) findViewById(R.id.cancel);
         mDone.setOnClickListener(this);
-        mCancel.setOnClickListener(this);
+//        mCancel.setOnClickListener(this);
 
     }
 
@@ -64,8 +76,7 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
                 insertUser();
                 dismiss();
                 break;
-            case R.id.cancel:
-                dismiss();
+
 
         }
 
@@ -84,7 +95,7 @@ public class DialogFeedbackActivity extends Dialog implements View.OnClickListen
 
                 "Anonymous",
                 mRate.getRating(),
-                mComment.getText().toString(),
+                // mComment.getText().toString(),
                 strDate
                 ,
                 MapsActivity.mChosenLoc,

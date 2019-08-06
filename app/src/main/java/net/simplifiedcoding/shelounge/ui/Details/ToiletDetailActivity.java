@@ -1,8 +1,12 @@
 package net.simplifiedcoding.shelounge.ui.Details;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,11 +29,23 @@ import retrofit.RetrofitError;
 
 public class ToiletDetailActivity extends AppCompatActivity {
     String JOutput;
-
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toilets);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFeedbackActivity cd = new DialogFeedbackActivity(ToiletDetailActivity.this);
+                cd.show();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         try {
             RestAdapter adapter = new RestAdapter.Builder()
                     .setEndpoint("http://ric-tiiciiitm.webhostingforstudents.com/sakhi/").build();
@@ -66,8 +82,11 @@ public class ToiletDetailActivity extends AppCompatActivity {
                                     TextView name = (TextView) findViewById(R.id.name);
 
                                     name.setText(doc_name);
-
-                                    ImageView imge = (ImageView) findViewById(R.id.imge);
+                                    TextView overview = (TextView) findViewById(R.id.overview);
+                                    Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+                                    name.setTypeface(font);
+                                    overview.setTypeface(font);
+                                    ImageView imge = (ImageView) findViewById(R.id.pic);
                                     Glide.with(getApplication()).load(img).into(imge);
 
 

@@ -4,6 +4,9 @@
 
     <!-- add these permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -31,13 +34,7 @@
         <activity
             android:name=".ui.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".ui.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ui.WomenSecurity.PentagonActivity"
             android:label="Human Security" />
@@ -54,10 +51,67 @@
             android:name=".utils.Googlemap"
             android:label="Human Security" />
         <activity android:name=".ui.Details.ToiletFeedbackActivity" />
-        <activity android:name=".ui.IntroActivity" />
-        <activity android:name=".ui.Details.DoctorDetailActivity" />
-        <activity android:name=".ui.Details.ShopsDetailActivity" />
-        <activity android:name=".ui.Details.ToiletDetailActivity" />
+
+        <activity
+            android:name=".ui.Details.DoctorDetailActivity"
+            android:parentActivityName=".ui.MapsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MapsActivity" />
+        </activity>
+        <activity
+            android:name=".ui.Details.ShopsDetailActivity"
+            android:parentActivityName=".ui.MapsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MapsActivity" />
+        </activity>
+        <activity
+            android:name=".ui.Details.ToiletDetailActivity"
+            android:parentActivityName=".ui.MapsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MapsActivity" />
+        </activity>
+        <activity
+            android:name=".ui.Details.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".ui.IntroActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
+        <activity
+            android:name=".fcm.FollowingPreferenceActivity"
+
+            android:parentActivityName=".ui.MapsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MapsActivity" />
+        </activity>
+
+        <!-- Id service -->
+        <service android:name=".fcm.FirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Service listening for any incoming messages -->
+        <service android:name=".fcm.FirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".fcm.DetailActivity"></activity>
+
+        <service android:name=".Popup.ShowHudService"/>
+
     </application>
 
 </manifest>

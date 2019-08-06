@@ -3,10 +3,15 @@ package net.simplifiedcoding.shelounge.ui;
 import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
+import android.graphics.drawable.LayerDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.AsyncTask;
@@ -16,8 +21,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,12 +51,15 @@ import net.simplifiedcoding.shelounge.DetailInterfaces.AvgRating;
 import net.simplifiedcoding.shelounge.DetailInterfaces.DoctorDetail;
 import net.simplifiedcoding.shelounge.DetailInterfaces.NameToilet;
 import net.simplifiedcoding.shelounge.DetailInterfaces.ShopDetail;
+import net.simplifiedcoding.shelounge.Popup.ShowHudService;
 import net.simplifiedcoding.shelounge.R;
+import net.simplifiedcoding.shelounge.fcm.FollowingPreferenceActivity;
+import net.simplifiedcoding.shelounge.fcm.FollowingPreferenceFragment;
 import net.simplifiedcoding.shelounge.ui.Details.DoctorDetailActivity;
 import net.simplifiedcoding.shelounge.ui.Details.ShopsDetailActivity;
 import net.simplifiedcoding.shelounge.ui.Details.ToiletDetailActivity;
-import net.simplifiedcoding.shelounge.ui.Details.ToiletFeedbackActivity;
 import net.simplifiedcoding.shelounge.ui.WomenSecurity.CheckComplaintActivity;
+import net.simplifiedcoding.shelounge.ui.WomenSecurity.DialogEmergency;
 import net.simplifiedcoding.shelounge.ui.WomenSecurity.PentagonActivity;
 import net.simplifiedcoding.shelounge.utils.AlertDialogManager;
 import net.simplifiedcoding.shelounge.utils.ApiUrl;
@@ -79,11 +91,18 @@ import static net.simplifiedcoding.shelounge.R.id.map;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
+    private static final int LOADER_ID_MESSAGES = 0;
+    private static String LOG_TAG = MapsActivity.class.getSimpleName();
+
+    final int REQUEST_READ_PHONE_STATE=2;
+
+    String imei_num;
+    SharedPreferences preferences;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private static final String TAG = "1";
     public static String mChosenLoc;
     final String JOutput = "";
-    public int flag;
+    public int flag = 3;
     ProgressDialog p;
     ArrayList<LatLng> MarkerPoints;
     GPSTracker gps;
@@ -92,13 +111,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     PrefManager pref;
     String JSON_String;
     RatingBar rate;
+    String cli_name, doc_name;
     Button mReviewBtn, mDetailBtn;
     String json_string0, json_string1, json_string2;
     JSONObject jsonObject, JO;
+    String shop_name;
     JSONArray jsonArray;
     TextView txtUninstall;
+    TextView txtOpen;
     ImageView medical_shops, female_doctors, see_toilets, woman;
     TextView txtBackup, txtDetail;
+    TextView mTitle;
     private GoogleMap mMap, mMap1;
 
     @Override
@@ -108,8 +131,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
         Toolbar toolbar = (Toolbar) findViewById(R.id.map_tool);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("TOILETS");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.textTitleColor));
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setIcon(R.drawable.toilet_small);
+        mTitle = (TextView) findViewById(R.id.toolbar_text);
+        mTitle.setText("TOILETS");
+
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+        mTitle.setTypeface(font);
+
+        FollowingPreferenceFragment.isOn = true;
 
         MarkerPoints = new ArrayList<>();
         woman = (ImageView) findViewById(R.id.woman);
@@ -119,24 +149,47 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         pref = new PrefManager(getApplicationContext());
         pref.setEvent("0");
-
+        preferences=getSharedPreferences("pref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("Registered",false);
+        editor.apply();
         final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(map);
-
 
         woman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent ws = new Intent(MapsActivity.this, PentagonActivity.class);
+               /* Intent ws = new Intent(MapsActivity.this, PentagonActivity.class);
+                startActivity(ws);*/
+
+                int permissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_PHONE_STATE);
+
+                if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);
+                } else {
+                    //TODO
+
+if (preferences.getBoolean("Registered",false)){
+    DialogEmergency cd = new DialogEmergency(MapsActivity.this);
+    cd.show();
+}
+else {
+     Intent ws = new Intent(MapsActivity.this, PentagonActivity.class);
                 startActivity(ws);
+}
+
+                }
+
+
 
             }
         });
         medical_shops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().setTitle("MEDICAL SHOPS");
+                mTitle.setText("MEDICAL SHOPS");
+                getSupportActionBar().setIcon(R.drawable.medical_small);
                 flag = 1;
 
 
@@ -184,7 +237,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         LatLngBounds GWALIOR = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
 
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), 11));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), Float.parseFloat("10.7")));
                         mMap.addCircle(new CircleOptions()
                                 .center(new LatLng(26.2183, 78.1828))
                                 .radius(10000)
@@ -199,7 +252,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         female_doctors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().setTitle("FEMALE DOCTORS");
+                mTitle.setText("FEMALE DOCTORS");
+                getSupportActionBar().setIcon(R.drawable.aid_small);
                 flag = 2;
 
                 AlertDialogManager alert = new AlertDialogManager();
@@ -247,7 +301,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         LatLngBounds GWALIOR = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
 
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), 11));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), Float.parseFloat("10.7")));
                         mMap.addCircle(new CircleOptions()
                                 .center(new LatLng(26.2183, 78.1828))
                                 .radius(10000)
@@ -267,7 +321,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         see_toilets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().setTitle("TOILETS");
+                mTitle.setText("TOILETS");
+                getSupportActionBar().setIcon(R.drawable.emergency_small);
                 flag = 3;
 
                 AlertDialogManager alert = new AlertDialogManager();
@@ -318,7 +373,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         LatLngBounds GWALIOR = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
 
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), 11));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), Float.parseFloat("10.7")));
                         mMap.addCircle(new CircleOptions()
                                 .center(new LatLng(26.2183, 78.1828))
                                 .radius(10000)
@@ -336,6 +391,40 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mapFragment.getMapAsync(this);
 
+    }
+
+    public static String getDeviceId(Context context){
+        TelephonyManager telephonyManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephonyManager.getDeviceId();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_following_preferences) {
+            // Opens the following activity when the menu icon is pressed
+            Intent startFollowingActivity = new Intent(this, FollowingPreferenceActivity.class);
+            startActivity(startFollowingActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    protected void onDestroy() {
+        if (FollowingPreferenceFragment.isOn == true) {
+            Intent i = new Intent(MapsActivity.this, ShowHudService.class);
+            startService(i);
+            finish();
+        }
+        super.onDestroy();
     }
 
     /**
@@ -445,18 +534,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void showSheet() {
-        View view = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+        View view = getLayoutInflater().inflate(R.layout.bottom_sheet_1, null);
+        view.setAlpha(Float.parseFloat("0.8"));
         txtBackup = (TextView) view.findViewById(R.id.txt_backup);
-        txtDetail = (TextView) view.findViewById(R.id.txt_detail);
-        //TextView txtOpen = (TextView)view.findViewById( R.id.txt_open);
+
+        txtOpen = (TextView) view.findViewById(R.id.textView);
         rate = (RatingBar) view.findViewById(R.id.ratingBar);
         txtUninstall = (TextView) view.findViewById(R.id.txt_uninstall);
-        if (flag == 3) {
-            rate.setVisibility(View.VISIBLE);
-            txtUninstall.setVisibility(View.VISIBLE);
-        }
-        txtUninstall.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-        txtDetail.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        LayerDrawable stars = (LayerDrawable) rate.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
+
+        txtOpen.setTextColor(getResources().getColor(R.color.textTitleColor));
+        txtUninstall.setTextColor(getResources().getColor(R.color.textTitleColor));
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+        txtBackup.setTypeface(font);
+        txtOpen.setTypeface(font);
+        txtUninstall.setTypeface(font);
+//        txtDetail.setTypeface(font);
 
         final Dialog mBottomSheetDialog = new Dialog(MapsActivity.this, R.style.MaterialDialogSheet);
         mBottomSheetDialog.setContentView(view);
@@ -468,26 +562,30 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         showDetails();
 
 
-        txtDetail.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 switch (flag) {
                     case 1:
-                        startActivity(new Intent(MapsActivity.this, ShopsDetailActivity.class));
+                        mBottomSheetDialog.dismiss();
+                        Intent intentShop = new Intent(MapsActivity.this, ShopsDetailActivity.class);
+                        //intentShop.putExtra("NAME",doc_name);
+
+                        startActivity(intentShop);
+
                         break;
                     case 2:
-                        startActivity(new Intent(MapsActivity.this, DoctorDetailActivity.class));
+                        mBottomSheetDialog.dismiss();
+                        Intent intent = new Intent(MapsActivity.this, DoctorDetailActivity.class);
+                        intent.putExtra("CLINIC", cli_name);
+                        intent.putExtra("DOCTOR", doc_name);
+                        startActivity(intent);
                         break;
                     case 3:
+                        mBottomSheetDialog.dismiss();
                         startActivity(new Intent(MapsActivity.this, ToiletDetailActivity.class));
                 }
-            }
-        });
-        txtUninstall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MapsActivity.this, ToiletFeedbackActivity.class));
             }
         });
 
@@ -498,11 +596,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         switch (flag) {
             case 1:
-                txtUninstall.setText("Reviews Not Available");
-                rate.setRating(0);
-                //txtUninstall.setClickable(false);
-                txtUninstall.setTextColor(Color.BLACK);
-                rate.setEnabled(false);
+//                txtDetail.setVisibility(View.INVISIBLE);
                 try {
                     RestAdapter adapter = new RestAdapter.Builder()
                             .setEndpoint("http://ric-tiiciiitm.webhostingforstudents.com/sakhi/").build();
@@ -530,7 +624,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                             JSONObject current = Array.getJSONObject(i);
 
 
-                                            String doc_name = current.getString("shop_name");
+                                            doc_name = current.getString("shop_name");
                                             txtBackup.setText(doc_name);
 
 
@@ -551,11 +645,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 break;
             case 2:
-                txtUninstall.setText("Reviews Not Available");
-                rate.setRating(0);
-                txtUninstall.setClickable(false);
-                rate.setEnabled(false);
-                txtUninstall.setTextColor(Color.BLACK);
+//                txtDetail.setVisibility(View.VISIBLE);
                 try {
                     RestAdapter adapter = new RestAdapter.Builder()
                             .setEndpoint("http://ric-tiiciiitm.webhostingforstudents.com/sakhi/").build();
@@ -583,8 +673,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                             JSONObject current = Array.getJSONObject(i);
 
 
-                                            String cli_name = current.getString("Clinic_Name");
-                                            String doc_name = current.getString("Doctor_Name");
+                                            cli_name = current.getString("Clinic_Name");
+                                            doc_name = current.getString("Doctor_Name");
+
                                             txtBackup.setText(cli_name);
                                             txtBackup.append(" " + doc_name);
 
@@ -608,6 +699,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             case 3:
                 txtUninstall.setVisibility(View.VISIBLE);
                 rate.setVisibility(View.VISIBLE);
+                txtOpen.setVisibility(View.VISIBLE);
                 rate.setEnabled(false);
                 name();
                 detail();
@@ -646,7 +738,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     String rating = current.getString("rating");
                                     String len = current.getString("len");
                                     rate.setRating(Float.parseFloat(rating));
-                                    txtUninstall.setText(len + " Reviews");
+                                    txtUninstall.setText(len);
 
 
                                 }
@@ -810,6 +902,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                            String permissions[], int[] grantResults) {
         Log.d(TAG, "Permission callback called-------");
         switch (requestCode) {
+            case REQUEST_READ_PHONE_STATE:
+                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    //TODO
+                    imei_num = getDeviceId(getApplicationContext());
+
+                    DialogEmergency cd = new DialogEmergency(MapsActivity.this);
+                    cd.show();
+
+                }
+                break;
+
             case REQUEST_ID_MULTIPLE_PERMISSIONS: {
 
                 Map<String, Integer> perms = new HashMap<>();
@@ -1124,63 +1227,207 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         @Override
         protected void onPostExecute(String result) {
-            see_toilets.setImageResource(R.drawable.comtoiwhite);
-
-            try {
-                JO = new JSONObject(json_string1);
-                jsonArray = JO.optJSONArray("toilets_json");
-                int count = 0;
-                String name = "", lat, lng, sno;
-
-                while (count < jsonArray.length()) {
-                    //  JSONObject JO = null;
+            switch (IntroActivity.a) {
+                case 1:
+                    mTitle.setText("TOILETS");
+                    getSupportActionBar().setIcon(R.drawable.toilet_small);
                     try {
-                        JO = jsonArray.getJSONObject(count);
-                        sno = JO.getString("S_NO");
-                        name = JO.getString("toilets_name");
-                        lat = JO.getString("latitude");
-                        lng = JO.getString("longitude");
-                        LatLng gwalior = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+                        JO = new JSONObject(json_string1);
+                        jsonArray = JO.optJSONArray("toilets_json");
+                        int count = 0;
+                        String name = "", lat, lng, sno;
 
-                        mMap.addMarker(new MarkerOptions().position(gwalior).title(sno).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
-                        //
+                        while (count < jsonArray.length()) {
+                            //  JSONObject JO = null;
+                            try {
+                                JO = jsonArray.getJSONObject(count);
+                                sno = JO.getString("S_NO");
+                                //name = JO.getString("toilets_name");
+                                lat = JO.getString("latitude");
+                                lng = JO.getString("longitude");
+                                LatLng gwalior = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
 
-                        count++;
+                                mMap.addMarker(new MarkerOptions().position(gwalior).title(sno).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+                                //
 
+                                count++;
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
                     } catch (JSONException e) {
-                        e.printStackTrace();
+
+                    }
+                    getLatLong();
+                    LatLng gwaliort = new LatLng(latitude, longitude);
+                    mMap.addMarker(new MarkerOptions().position(gwaliort).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+                    LatLngBounds GWALIORT = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
+
+                    p.dismiss();
+
+
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIORT.getCenter(), Float.parseFloat("10.7")));
+                    mMap.addCircle(new CircleOptions()
+                            .center(new LatLng(26.2183, 78.1828))
+                            .radius(10000)
+                            .strokeColor(Color.BLACK)
+                            .fillColor(0x42ffff00));
+
+                    if (pref.getEvent().equals("1")) {
+                        Intent i = new Intent(MapsActivity.this, CheckComplaintActivity.class);
+                        startActivity(i);
                     }
 
-                }
-            } catch (JSONException e) {
+                    break;
+                case 4:
+                    startActivity(new Intent(MapsActivity.this, PentagonActivity.class));
+                    break;
+                case 3:
+                    mTitle.setText("FEMALE DOCTORS");
+                    getSupportActionBar().setIcon(R.drawable.aid_small);
+                    //getSupportActionBar().setTitle("FEMALE DOCTORS");
+                    flag = 2;
 
-            }
+                    AlertDialogManager alert = new AlertDialogManager();
+                    ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
+
+                    // Check if Internet present
+                    if (!cd.isConnectingToInternet()) {
+                        // Internet Connection is not present
+                        alert.showAlertDialog(MapsActivity.this,
+                                "Internet Connection Error",
+                                "Please connect to working Internet connection", false);
+                        // stop executing code by return
+                        return;
+                    } else {
+                        getLatLong();
+                        mMap.clear();
+                        System.out.println(json_string2);
+                        try {
+                            JO = new JSONObject(json_string2);
+                            jsonArray = JO.optJSONArray("female_json");
+                            int count = 0;
+                            String name, lat, lng;
+
+                            while (count < jsonArray.length()) {
+
+                                try {
+                                    JO = jsonArray.getJSONObject(count);
+                                    name = JO.getString("Clinic_Name");
+                                    lat = JO.getString("Latitude");
+                                    lng = JO.getString("Longitude");
+                                    LatLng sydney = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+                                    mMap.addMarker(new MarkerOptions().position(sydney).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+
+                                    count++;
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        } catch (JSONException e) {
+
+                        }
+                        getLatLong();
+                        LatLng gwalior = new LatLng(latitude, longitude);
+                        mMap.addMarker(new MarkerOptions().position(gwalior).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+                        LatLngBounds GWALIOR = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
+
+                        p.dismiss();
 
 
-            getLatLong();
-            LatLng gwalior = new LatLng(latitude, longitude);
-            mMap.addMarker(new MarkerOptions().position(gwalior).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), Float.parseFloat("10.7")));
+                        mMap.addCircle(new CircleOptions()
+                                .center(new LatLng(26.2183, 78.1828))
+                                .radius(10000)
+                                .strokeColor(Color.BLACK)
+                                .fillColor(0x42ffff00));
 
-            LatLngBounds GWALIOR = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
+                        if (pref.getEvent().equals("1")) {
+                            Intent i = new Intent(MapsActivity.this, CheckComplaintActivity.class);
+                            startActivity(i);
+                        }
 
-            p.dismiss();
+
+                    }
+                    break;
+                case 2:
+                    // getSupportActionBar().setTitle("MEDICAL SHOPS");
+                    mTitle.setText("MEDICAL SHOPS");
+                    getSupportActionBar().setIcon(R.drawable.medical_small);
+                    flag = 1;
 
 
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), 11));
-            mMap.addCircle(new CircleOptions()
-                    .center(new LatLng(26.2183, 78.1828))
-                    .radius(10000)
-                    .strokeColor(Color.BLACK)
-                    .fillColor(0x42ffff00));
+                    AlertDialogManager alertm = new AlertDialogManager();
+                    ConnectionDetector cdm = new ConnectionDetector(getApplicationContext());
 
-            if (pref.getEvent().equals("1")) {
-                Intent i = new Intent(MapsActivity.this, CheckComplaintActivity.class);
-                startActivity(i);
+                    // Check if Internet present
+                    if (!cdm.isConnectingToInternet()) {
+                        // Internet Connection is not present
+                        alertm.showAlertDialog(MapsActivity.this,
+                                "Internet Connection Error",
+                                "Please connect to working Internet connection", false);
+                        // stop executing code by return
+                        return;
+                    } else {
+                        getLatLong();
+                        mMap.clear();
+                        System.out.println(json_string1);
+                        try {
+                            JO = new JSONObject(json_string0);
+                            jsonArray = JO.optJSONArray("medical_shops_json");
+                            int count = 0;
+                            String name, lat, lng;
+
+                            while (count < jsonArray.length()) {
+
+                                try {
+                                    JO = jsonArray.getJSONObject(count);
+                                    name = JO.getString("shop_name");
+                                    lat = JO.getString("latitude");
+                                    lng = JO.getString("longitude");
+                                    LatLng sydney = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+                                    mMap.addMarker(new MarkerOptions().position(sydney).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                                    count++;
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        } catch (JSONException e) {
+
+                        }
+                        getLatLong();
+                        LatLng gwalior = new LatLng(latitude, longitude);
+                        mMap.addMarker(new MarkerOptions().position(gwalior).title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+                        LatLngBounds GWALIOR = new LatLngBounds(new LatLng(26.104292, 78.111943), new LatLng(26.320862, 78.270518));
+
+                        p.dismiss();
+
+
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GWALIOR.getCenter(), Float.parseFloat("10.7")));
+                        mMap.addCircle(new CircleOptions()
+                                .center(new LatLng(26.2183, 78.1828))
+                                .radius(10000)
+                                .strokeColor(Color.BLACK)
+                                .fillColor(0x42ffff00));
+
+                        if (pref.getEvent().equals("1")) {
+                            Intent i = new Intent(MapsActivity.this, CheckComplaintActivity.class);
+                            startActivity(i);
+                        }
+
+                    }
+
+
             }
 
         }
-
-
     }
-
 }

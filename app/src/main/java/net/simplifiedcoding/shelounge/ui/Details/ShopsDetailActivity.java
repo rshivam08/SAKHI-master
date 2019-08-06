@@ -1,7 +1,9 @@
 package net.simplifiedcoding.shelounge.ui.Details;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,10 +28,17 @@ import retrofit.RetrofitError;
 
 public class ShopsDetailActivity extends AppCompatActivity {
     String JOutput;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //String doc=getIntent().getStringExtra("NAME");
+        //getSupportActionBar().setTitle(doc);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_shops_details);
         try {
             RestAdapter adapter = new RestAdapter.Builder()
@@ -64,8 +73,9 @@ public class ShopsDetailActivity extends AppCompatActivity {
                                     TextView name = (TextView) findViewById(R.id.name);
 
                                     name.setText(doc_name);
-
-                                    ImageView imge = (ImageView) findViewById(R.id.imge);
+                                    Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/lithos.ttf");
+                                    name.setTypeface(font);
+                                    ImageView imge = (ImageView) findViewById(R.id.pic);
                                     Glide.with(ShopsDetailActivity.this).load(img).into(imge);
 
 
